@@ -1,5 +1,6 @@
 package th.ac.su.cp.speedcalculator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
@@ -21,7 +22,14 @@ public class MainActivity extends AppCompatActivity {
         Button cal = findViewById(R.id.cal);
         Button clear = findViewById(R.id.clear);
         final TextView show = findViewById(R.id.show);
-
+        clear.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                distance.setText("");
+                time.setText("");
+                show.setText("");
+            }
+        });
         cal.setOnClickListener(new View.OnClickListener() {
 
 
@@ -29,6 +37,7 @@ public class MainActivity extends AppCompatActivity {
             public void onClick(View view) {
                 String d =distance.getText().toString();
                 String t =time.getText().toString();
+                show.setText(String.format(""));
 
                 if(d.length()==0 ||t.length()==0 ){
                     Toast tos = Toast.makeText(
@@ -53,8 +62,16 @@ public class MainActivity extends AppCompatActivity {
                         double realtime = z*100;
                         double realdistance = Double.parseDouble(d);
                         double speed =(( (realdistance/realtime)*100 )*3.6);
-                         show.setText(String.format("%.2f",speed));
+                        show.setText(String.format("%.2f",speed));
+                        if(speed>=80.0){
+                            AlertDialog.Builder dialog = new AlertDialog.Builder(MainActivity.this);
+                            dialog.setTitle(R.string.speedtitle);
+                            dialog.setMessage(R.string.overlimit);
+                            dialog.setPositiveButton("OK",null);
+                            dialog.show();
+                        }
                     }
+
 
 
 

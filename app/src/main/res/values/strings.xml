@@ -11,4 +11,6 @@
     <string name="todologo" translatable="false">TODOlogo</string>
     <string name="greaterthan">Time must be greater than zero.</string>
     <string name="fieldrequire">Distance and time are required.</string>
+    <string name="speedtitle" translatable="false">SPEED CALCULATOR</string>
+    <string name="overlimit">Speed is over limit!</string>
 </resources>

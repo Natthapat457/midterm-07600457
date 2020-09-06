@@ -8,4 +8,5 @@
     <string name="calculate">คำนวน</string>
     <string name="fieldrequire">ต้องกรอกระยะทางเเละเวลา</string>
     <string name="greaterthan">เวลาต้องมากกว่าศูนย์</string>
+    <string name="overlimit">ความเร็วเกินกำหนด!</string>
 </resources>
